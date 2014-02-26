@@ -1,0 +1,120 @@
+.sequence-diagram {
+	position: relative;
+	border: 1px solid #DDD;
+	border-radius: 0.3em;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.sequence-diagram .header {
+	position: relative;
+	height: 2em;
+}
+
+.sequence-diagram .entity {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 2px solid #888;
+}
+
+.sequence-diagram .body {
+	position: relative;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.sequence-diagram .line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	border-left: 2px solid #DDD;
+}
+
+.sequence-diagram .action, .sequence-diagram .note, .sequence-diagram .event {
+	position: relative;
+	text-align: center;
+	margin-top: 0.5em;
+	padding-bottom: 10px;
+}
+
+.sequence-diagram .action {
+	line-height: 1;
+	overflow: hidden;
+}
+
+.sequence-diagram .note, .sequence-diagram .event {
+	background-color: #DDD;
+	border-radius: 0.5em;
+	color: #666;
+	padding: 0.3em;
+}
+
+.sequence-diagram .event {
+	background-color: #FF8;
+	border: 1px solid #888;
+}
+
+.sequence-diagram .arrow, .sequence-diagram .arrow-right, .sequence-diagram .arrow-left {
+	position: absolute;
+	bottom: 0;
+}
+
+.sequence-diagram .arrow-right {
+	right: 0;
+}
+.sequence-diagram .arrow-left {
+	left: 0;
+}
+
+.sequence-diagram .group {
+	position: relative;
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+}
+
+.sequence-diagram .lifeline {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	border-left: 0.5em solid #89C;
+	color: #78B;
+	padding-left: 0.3em;
+}
+
+.sequence-diagram .group .group .lifeline {
+	border-left-color: #C98;
+	color: #B87;
+}
+
+.sequence-diagram .group .group .group .lifeline {
+	border-left-color: #9C8;
+	color: #8B7;
+}
+
+.sequence-diagram .group .group .group .group.lifeline {
+	border-left-color: #BBB;
+	color: #BBB;
+}
+
+.sequence-diagram .group .group .group .group {
+	padding-left: 0.25em;
+}
+
+.sequence-diagram hr {
+	border: none;
+	border-top: 0.3em dashed #DDD;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+.sequence-diagram .section-title {
+	font-size: 1.2em;
+	color: #888;
+	margin-left: 0.5em;
+	text-align: left;
+	position: relative;
+	top: -0.2em;
+}

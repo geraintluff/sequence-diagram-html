@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Sequence diagram demo (conversion from text)</title>
+		<link rel="stylesheet" href="style/sequence-diagram.css">
+		<link rel="stylesheet" href="style/sequence-diagram-columns.css">
+		<style>
+			body {
+				font-family: "Trebuchet MS", sans-serif;
+				background-color: #F8F4F0;
+				margin: 0;
+				padding-left: 30%;
+			}
+			
+			#test-input {
+				position: fixed;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: 30%;
+				white-space: pre;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="style/sequence-diagram-text.js"></script>
+		<textarea id="test-input">
+Alice, Bob, Carol, Dani
+
+// initial conversation
+Alice --> Carol: says hello
+Carol: (Carol is a nice person)
+Dani: enters
+
+// second conversation
+Bob: Alice and Bob's private conversation
+    Alice -> Bob: talks
+    Alice &lt;- Bob: replies
+    Bob: distraction
+        Alice -> Bob: talks
+        Alice &lt;- Bob: replies
+
+    // final conclusions
+    Dani: leaves
+    Bob -> Alice: conclusions
+</textarea>
+		<div id="test-output"></div>
+		<script>
+			var lastText = null
+			setInterval(function () {
+				var eInput = document.getElementById('test-input');
+				var eOutput = document.getElementById('test-output');
+				var text = eInput.value;
+				if (lastText !== text) {
+					lastText = text;
+					var html = sequenceDiagram.textToHtml(text);
+					console.log(html);
+					eOutput.innerHTML = html;
+				}
+			}, 100);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Sequence diagram demo (CSS only)</title>
+		<link rel="stylesheet" href="style/sequence-diagram.css">
+		<link rel="stylesheet" href="style/sequence-diagram-columns.css">
+		<style>
+			body {
+				font-family: "Trebuchet MS", sans-serif;
+				background-color: #F8F4F0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sequence-diagram">
+			<div class="header">
+				<div class="entity col-1-4">Alice</div>
+				<div class="entity col-2-4">Bob</div>
+				<div class="entity col-3-4">Carol</div>
+				<div class="entity col-4-4">Dani</div>
+			</div>
+			<div class="body">
+				<div class="line left-1-4"></div>
+				<div class="line left-2-4"></div>
+				<div class="line left-3-4"></div>
+				<div class="line left-4-4"></div>
+				
+				<div class="action left-1-4 right-3-4"><img class="arrow-right" src="style/arrow-right.png" alt="Alice --> Carol">says hello</div>
+				<div class="note col-3-4">Carol is a nice person</div>
+				<div class="event col-4-4">enters</div>
+				
+				<hr>
+				
+				<div class="group">
+					<div class="lifeline left-2-4 right-3-4">Alice and Bob's private conversation</div>
+					<div class="action left-1-4 right-2-4"><img class="arrow-right" src="style/arrow-right.png" alt="Alice --> Bob">talks</div>
+					<div class="action left-1-4 right-2-4"><img class="arrow-left" src="style/arrow-left.png" alt="Alice <-- Bob">replies</div>
+					<div class="group">
+						<div class="lifeline left-2-4 right-3-4">distraction</div>
+						<div class="action left-1-4 right-2-4"><img class="arrow-right" src="style/arrow-right.png" alt="Alice --> Bob">talks</div>
+						<div class="action left-1-4 right-2-4"><img class="arrow-left" src="style/arrow-left.png" alt="Alice <-- Bob">replies</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
