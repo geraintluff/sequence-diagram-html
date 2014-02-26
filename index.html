@@ -15,9 +15,17 @@
 				position: fixed;
 				top: 0;
 				left: 0;
-				bottom: 0;
+				bottom: 40px;
 				width: 30%;
 				white-space: pre;
+			}
+			
+			#export-button {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 30%;
+				height: 40px;
 			}
 		</style>
 	</head>
@@ -44,6 +52,7 @@ Bob: Alice and Bob's private conversation
     Bob -> Alice: conclusions
 </textarea>
 		<div id="test-output"></div>
+		<input type="button" id="export-button" value="Export HTML">
 		<script>
 			var lastText = null
 			setInterval(function () {
@@ -57,6 +66,13 @@ Bob: Alice and Bob's private conversation
 					eOutput.innerHTML = html;
 				}
 			}, 100);
+			
+			document.getElementById('export-button').onclick = function () {
+				var eInput = document.getElementById('test-input');
+				var text = eInput.value;
+				var html = sequenceDiagram.textToHtml(text);
+				window.open('data:text/plain,' + encodeURIComponent(html));
+			};
 		</script>
 	</body>
 </html>
