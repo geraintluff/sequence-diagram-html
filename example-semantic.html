@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Sequence diagram demo (CSS only)</title>
+		<link rel="stylesheet" href="style/sequence-diagram.css">
+		<style>
+			body {
+				font-family: "Trebuchet MS", sans-serif;
+				background-color: #F8F4F0;
+			}
+		</style>
+	</head>
+	<body>
+		<sequence-diagram-semantic>
+			<header>
+				<entity>Alice</entity>
+				<entity>Bob</entity>
+				<entity>Carol</entity>
+				<entity>Dani</entity>
+			</header>
+			
+			<action><from>Alice</from> says hello to <to>Carol</to></action>
+			<note><from>Carol</from> is a nice person</note>
+			<event>
+				<from>Dani</from> enters:
+				<pre><code class="lang-json">{"foo": "bar"}</code></pre>
+			</event>
+			
+			<section>
+				<title>Second section</title>
+				<group>
+					<lifeline><for>Bob</for>'s private conversation</lifeline>
+					<action><from>Alice</from> talks to <to>Bob</to></action>
+					<action><from>Bob</from> replies to <to>Alice</to></action>
+					<group>
+						<lifeline><from>Bob</from>'s distraction</lifeline>
+						<action><from>Alice</from> talks to <to>Bob</to></action>
+						<action><to>Alice</to> gets reply from <from>Bob</from></action>
+					</group>
+					<action><to>Alice</to> gets conclusion from <from>Bob</from></action>
+				</group>
+			</section>
+		</div>
+		<script src="style/convert.js"></script>
+	</body>
+</html>

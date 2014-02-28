@@ -1,8 +1,7 @@
 <html>
 	<head>
 		<title>Sequence diagram demo (conversion from text)</title>
-		<link rel="stylesheet" href="style/sequence-diagram.css">
-		<link rel="stylesheet" href="style/sequence-diagram-columns.css">
+		<link rel="stylesheet" href="./sequence-diagram.css">
 		<style>
 			body {
 				font-family: "Trebuchet MS", sans-serif;
@@ -28,9 +27,10 @@
 				height: 40px;
 			}
 		</style>
+		<style id="columns-css"></style>
+		<script src="./convert.js"></script>
 	</head>
 	<body>
-		<script src="style/sequence-diagram-text.js"></script>
 		<textarea id="test-input">
 Alice, Bob, Carol, Dani
 
@@ -58,12 +58,14 @@ Bob: Alice and Bob's private conversation
 			setInterval(function () {
 				var eInput = document.getElementById('test-input');
 				var eOutput = document.getElementById('test-output');
+				var eStyle = document.getElementById('columns-css');
 				var text = eInput.value;
 				if (lastText !== text) {
 					lastText = text;
-					var html = sequenceDiagram.textToHtml(text);
-					console.log(html);
+					var diagram = sequenceDiagram.fromText(text);
+					var html = diagram.toHtml();
 					eOutput.innerHTML = html;
+					eStyle.innerHTML = diagram.generateCss();
 				}
 			}, 100);
 			

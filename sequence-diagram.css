@@ -1,0 +1,160 @@
+.header, header {
+	border-bottom: 2px solid #888;
+}
+
+.entity, entity {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.to, to, .from, from, .for, for, .entity, entity {
+	/*
+	font-weight: bold;
+	color: #000;
+	*/
+}
+
+.action, action, .event, event, .note, note {
+	display: block;
+	color: #444;
+}
+
+.group, group {
+	display: block;
+	padding-left: 2em;
+}
+
+.lifeline, lifeline {
+	display: block;
+	position: relative;
+	left: -2em;
+}
+
+.sequence-diagram-layout {
+	display: block;
+	position: relative;
+	border: 1px solid #DDD;
+	border-radius: 0.3em;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.sequence-diagram-layout .hidden, .sequence-diagram-layout hidden {
+	display: none;
+}
+
+.sequence-diagram-layout .header {
+	position: relative;
+	height: 2em;
+}
+
+.sequence-diagram-layout .entity {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.sequence-diagram-layout .body {
+	position: relative;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.sequence-diagram-layout .line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	border-left: 2px solid #DDD;
+}
+
+.sequence-diagram-layout .action, .sequence-diagram-layout .note, .sequence-diagram-layout .event {
+	position: relative;
+	text-align: center;
+	margin-top: 0.5em;
+	padding-bottom: 10px;
+}
+
+.sequence-diagram-layout .action {
+	line-height: 1;
+	overflow: hidden;
+}
+
+.sequence-diagram-layout .note, .sequence-diagram-layout .event {
+	background-color: #DDD;
+	border-radius: 0.5em;
+	color: #666;
+	padding: 0.3em;
+}
+
+.sequence-diagram-layout .event {
+	background-color: #FF8;
+	border: 1px solid #888;
+}
+
+.sequence-diagram-layout .arrow, .sequence-diagram-layout .arrow-right, .sequence-diagram-layout .arrow-left {
+	position: absolute;
+	bottom: 0;
+}
+
+.sequence-diagram-layout .arrow-right {
+	right: 0;
+}
+.sequence-diagram-layout .arrow-left {
+	left: 0;
+}
+
+.sequence-diagram-layout .group {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+}
+
+.sequence-diagram-layout .lifeline {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	border-left: 0.5em solid #89C;
+	color: #78B;
+	padding-left: 0.3em;
+}
+
+.sequence-diagram-layout .group .group .lifeline {
+	border-left-color: #C98;
+	color: #B87;
+}
+
+.sequence-diagram-layout .group .group .group .lifeline {
+	border-left-color: #9C8;
+	color: #8B7;
+}
+
+.sequence-diagram-layout .group .group .group .group.lifeline {
+	border-left-color: #BBB;
+	color: #BBB;
+}
+
+.sequence-diagram-layout .group .group .group .group {
+	padding-left: 0.25em;
+}
+
+.sequence-diagram-layout hr, .sequence-diagram-layout .section {
+	border: none;
+	border-top: 0.3em dashed #DDD;
+	margin-top: 1em;
+	padding-top: 0.5em;
+}
+
+.sequence-diagram-layout .section-title {
+	font-size: 1.2em;
+	color: #888;
+	margin-left: 0.5em;
+	text-align: left;
+	position: relative;
+	top: -0.2em;
+}
