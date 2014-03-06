@@ -158,3 +158,16 @@
 	position: relative;
 	top: -0.2em;
 }
+
+.sequence-diagram-layout ul, .sequence-diagram-layout ol {
+	display: block;
+	text-align: left;
+	margin: 0.3em;
+	padding-left: 2.5em;
+}
+
+.sequence-diagram-layout pre, .sequence-diagram-layout pre[class*="language-"], .sequence-diagram-layout pre code {
+	margin: 0;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
