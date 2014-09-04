@@ -2,7 +2,7 @@
 
 This is a set of stylesheets for displaying sequence diagrams in HTML pages.
 
-You can preview it at the [demo page](http://geraintluff.github.io/sequence-diagram-html/example-css.html) - be sure to look at the source!
+You can write your diagram as CSS ([demo page](http://geraintluff.github.io/sequence-diagram-html/example-css.html)) or semantic markup ([demo page](http://geraintluff.github.io/sequence-diagram-html/example-semantic.html)).  Look at the source for each one to see how it works!
 
 ## Conversion from text
 
