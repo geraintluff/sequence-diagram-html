@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "./"
+		}
+	],
+	"build_systems": [
+		{
+			"name": "Sequence Diagram",
+			"cmd": ["npm", "run", "gulp"],
+			"working_dir": "$project_path",
+			"path": "/usr/local/bin:/usr/local/sbin:$PATH"
+		}
+	]
+}
