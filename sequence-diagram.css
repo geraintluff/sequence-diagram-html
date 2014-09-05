@@ -94,16 +94,13 @@
 	border: 1px solid #888;
 }
 
-.sequence-diagram-layout .arrow, .sequence-diagram-layout .arrow-right, .sequence-diagram-layout .arrow-left {
+.sequence-diagram-layout .arrow, .sequence-diagram-layout .arrow {
 	position: absolute;
 	bottom: 0;
 }
 
-.sequence-diagram-layout .arrow-right {
-	right: 0;
-}
-.sequence-diagram-layout .arrow-left {
-	left: 0;
+.sequence-diagram-layout .arrow {
+	width: 100%;
 }
 
 .sequence-diagram-layout .group {

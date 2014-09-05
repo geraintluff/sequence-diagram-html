@@ -153,13 +153,13 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 						if (fromPos < toPos) {
 							var alt = event.from + ' --> ' + event.to;
 							html.push(indent + '<div class="action left-' + fromPos + '-' + agentCount + ' right-' + toPos + '-' + agentCount + '">'
-								+ '<img class="arrow-right" src="' + escapeHtml(lineImages.right) + '" alt="' + escapeHtml(alt) + '">'
+								+ '<div class="arrow" title="' + escapeHtml(alt) + '">' + lineImages.right + '</div>'
 								+ (event.label || '')
 								+ '</div>');
 						} else if (fromPos > toPos) {
 							var alt = event.to + ' <-- ' + event.from;
 							html.push(indent + '<div class="action left-' + toPos + '-' + agentCount + ' right-' + fromPos + '-' + agentCount + '">'
-								+ '<img class="arrow-left" src="' + escapeHtml(lineImages.left) + '" alt="' + escapeHtml(alt) + '">'
+								+ '<div class="arrow" title="' + escapeHtml(alt) + '">' + lineImages.left + '</div>'
 								+ (event.label || '')
 								+ '</div>');
 						} else {
@@ -224,10 +224,10 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 	}
 	
 	var lineImages = {
-		left: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAAOCAYAAAA/ruXZAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFlSURBVHic7d0tblVRFAXgtUhNXStLPQaBYQgMgREgqCFVDQ0KQ1qFQVbV4xtGwQTwpJNoNuK99CeEpi+hF8T3yXv2SZZeOeeezkw21XY/yeXMXG28GQAAAAA28GST4bZ7bb8keaG8AgAAAGAJDyqw2u60PUnyI8n3mbl43FgAAAAAsLJ132Lb7SSHSY6T7CY5mpnzBXIBAAAAQJI/FFhtt5K8SfIxydP159OZ+bxUMAAAAABIkt7+iXvbJnmd5FOSZ7fmzmbmYOFsAAAAAHBTYLV9leQ0yct/mggAAAAAbtnoFUIAAAAAWJorhAAAAAD81+6cwJqVr0meJzlI8nO99LbtydLhAAAAAODOCazfFtvtJIdJjpPsJjnyEiEAAAAAS7q3wLoeaneSvM+qzHo3M+ePnAsAAAAAkjywwLoebveSfEjybWYuHi0VAAAAAKxtVGBdb2r3k1zOzNXfjwQAAAAAN34B/tRbBmjoGikAAAAASUVORK5CYII=',
-		right: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAAOCAYAAAA/ruXZAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFDSURBVHic7dwhTh1hFAXgcxrYRAWmqSapRuKadAVsoguoQKJIcDWEVCGrmybdAQkG09QgsEjkregzTSg8ROc98X3JmJl7kl+fzH87MwEAAACAJbTdm5nbl2Re/a/DAAAAAMAjdttetH23bkCBBQAAAMBiZuZXktMk39tetn37XEaBBQAAAMCiZuY6yYfVc9P2c9vX/5qvHVgAAAAAbELb90m+JtlJ8pDkLMnJzNz/NafAAgAAAGBT2h4l+ZKkq1f3SU6SnM3MQ1YfNFgAAAAAbJu7JMdJzu3AAgAAAGCruUIIAAAAwMasdYVQgQUAAADAJljiDgAAAMDWanuQ5FuS3STnSY5n5u7RWQUWAAAAAEtqu5/kR/4UWJ9m5udT8zuLnAoAAAAAkrR9k+RjksOZuVor4w8sAAAAAJbSdm9mbl+S+Q3O/lx2+rQJWgAAAABJRU5ErkJggg=='
+		left: '<svg width="100%" height="14" preserveAspectRatio="xMinYMid slice" viewBox="0 0 1400 14"><polygon points="0,7 15,1 10,6 1400,6 1400,8 10,8 15,13 0,7"/></svg>',
+		right: '<svg width="100%" height="14" preserveAspectRatio="xMaxYMid slice" viewBox="0 0 1400 14"><polygon points="1400,7 1385,1 1390,6 0,6 0,8 1390,8 1385,13 1400,7"/></svg>'
 	};
-	
+
 	function hasClass(element, cssClass, orTagName) {
 		var padded = " " + element.className + " ";
 		return (padded.indexOf(" " + cssClass + " ") !== -1) || (orTagName && (element.tagName + "").toLowerCase() == cssClass.toLowerCase());
