@@ -1,0 +1,23 @@
+{
+	"name": "sequence-diagram-html",
+	"private": true,
+	"version": "0.0.0",
+	"description": "Sequence Diagram",
+	"author": "Rob Moran <rob.moran@arm.com>",
+	"homepage": "",
+	"licenses": [
+		{
+			"url": "about:blank",
+			"type": ""
+		}
+	],
+	"devDependencies": {
+		"browser-sync": "^1.3.5",
+		"gulp": "^3.8.7",
+		"gulp-util": "^3.0.0"
+	},
+	"scripts": {
+		"kill": "killall gulp || exit 0",
+		"gulp": "npm run kill && gulp"
+	}
+}
