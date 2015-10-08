@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Sequence diagram demo (CSS only)</title>
-		<link rel="stylesheet" href="./sequence-diagram.css">
+		<link rel="stylesheet" href="sequence-diagram.css">
 		<style>
 			body {
 				font-family: "Trebuchet MS", sans-serif;
@@ -30,16 +30,16 @@
 				<group>
 					<lifeline><for>Bob</for>'s private conversation</lifeline>
 					<action><from>Alice</from> talks to <to>Bob</to></action>
-					<action><from>Bob</from> replies to <to>Alice</to></action>
+					<action from="Bob" to="Alice">replies</action>
 					<group>
 						<lifeline><from>Bob</from>'s distraction</lifeline>
 						<action><from>Alice</from> talks to <to>Bob</to></action>
-						<action><to>Alice</to> gets reply from <from>Bob</from></action>
+						<action><hidden><to>Alice</to></hidden> gets reply <hidden>from <from>Bob</from></hidden></action>
 					</group>
 					<action><to>Alice</to> gets conclusion from <from>Bob</from></action>
 				</group>
 			</section>
 		</div>
-		<script src="./convert.js"></script>
+		<script src="convert.js"></script>
 	</body>
 </html>

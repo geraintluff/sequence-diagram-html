@@ -8,12 +8,13 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 		this.activeGroups = 0;
 	}
 	Diagram.prototype = {
-		setAgents: function (agents) {
+		setAgents: function (agents, fullNames) {
 			if (this.events[this.events.length - 1] === this.currentAgents) {
 				this.events.pop();
 			}
 			this.currentAgents = agents;
 			this.events.push(agents);
+			agents.fullNames = fullNames || {};
 		},
 		startSection: function () {
 			this.events.push({section: 'start'});
@@ -104,7 +105,7 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 					html.push('\t<div class="header">');
 					for (var i = 0; i < agentCount; i++) {
 						if (agents[i]) {
-							html.push(indent + '<div class="entity col-' + (i + 1) + '-' + agentCount + '">' + escapeHtml(agents[i]) + '</div>');
+							html.push(indent + '<div class="entity col-' + (i + 1) + '-' + agentCount + '">' + escapeHtml(agents.fullNames[agents[i]] || agents[i]) + '</div>');
 						}
 					}
 					html.push('\t</div>');
@@ -282,7 +283,7 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 	};
 	api.fromSemantic = function (element) {
 		var diagram = new Diagram();
-		var entities, elementContent, fromEntity, toEntity, groupPending = false, sectionPending = false;
+		var entities, entityNames, elementContent, fromEntity, toEntity, groupPending = false, sectionPending = false;
 
 		function startGroupIfNeeded(label) {
 			if (groupPending) {
@@ -295,14 +296,18 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 		walkNodes(element, function (node) {
 			if (hasClass(node, 'header', true)) {
 				entities = [];
+				entityNames = {};
 			} else if (hasClass(node, 'entity', true)) {
-				entities.push(textContent(node));
+				var name = textContent(node);
+				var alias = node.getAttribute('alias') || name;
+				entities.push(alias);
+				entityNames[alias] = name;
 				return false;
 			} else if (hasClass(node, 'action', true)) {
 				startGroupIfNeeded();
 				elementContent = node.innerHTML;
-				fromEntity = '?';
-				toEntity = '??';
+				fromEntity = node.getAttribute('from') || node.getAttribute('for') || '?';
+				toEntity = node.getAttribute('to') || node.getAttribute('for') || '??';
 			} else if (hasClass(node, 'lifeline', true)) {
 				elementContent = node.innerHTML;
 				fromEntity = null;
@@ -310,8 +315,8 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 			} else if (hasClass(node, 'note', true) || hasClass(node, 'event', true)) {
 				startGroupIfNeeded();
 				elementContent = node.innerHTML;
-				fromEntity = null;
-				toEntity = null;
+				fromEntity = node.getAttribute('from') || node.getAttribute('for');
+				toEntity = node.getAttribute('to') || node.getAttribute('for');
 			} else if (hasClass(node, 'section', true)) {
 				diagram.startSection();
 			} else if (hasClass(node, 'title', true)) {
@@ -329,7 +334,7 @@ var sequenceDiagram = (this && this.sequenceDiagram) || {};
 			}
 		}, function (node) {
 			if (hasClass(node, 'header', true)) {
-				diagram.setAgents(entities);
+				diagram.setAgents(entities, entityNames);
 			} else if (hasClass(node, 'action', true)) {
 				diagram.addAction(fromEntity, toEntity, elementContent);
 			} else if (hasClass(node, 'note', true)) {
