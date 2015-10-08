@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Sequence diagram demo (CSS only)</title>
-		<link rel="stylesheet" href="style/sequence-diagram.css">
+		<link rel="stylesheet" href="./sequence-diagram.css">
 		<style>
 			body {
 				font-family: "Trebuchet MS", sans-serif;
@@ -17,14 +17,14 @@
 				<entity>Carol</entity>
 				<entity>Dani</entity>
 			</header>
-			
+
 			<action><from>Alice</from> says hello to <to>Carol</to></action>
 			<note><from>Carol</from> is a nice person</note>
 			<event>
 				<from>Dani</from> enters:
 				<pre><code class="lang-json">{"foo": "bar"}</code></pre>
 			</event>
-			
+
 			<section>
 				<title>Second section</title>
 				<group>
@@ -40,6 +40,6 @@
 				</group>
 			</section>
 		</div>
-		<script src="style/convert.js"></script>
+		<script src="./convert.js"></script>
 	</body>
 </html>
